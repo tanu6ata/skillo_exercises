@@ -1,16 +1,22 @@
 package skillo.lection4;
 
+import java.util.Scanner;
+
 public class EligibleToWork {
     public static void main(String[] args) {
         checkWorkEligibility();
     }
 
     public static void checkWorkEligibility() {
-        int age = 17;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter age: ");
+        int age = scanner.nextInt();
+
         if (age >= 16) {
-            System.out.println("The person is elibible to work");
+            System.out.println("The person is eligible to work");
         } else {
-            System.out.println("The person is not elibible to work");
+            System.out.println("The person is not eligible to work");
         }
     }
 }

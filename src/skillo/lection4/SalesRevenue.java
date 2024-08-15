@@ -5,52 +5,77 @@ import java.util.Scanner;
 public class SalesRevenue {
 
     public static void main(String[] args) {
-        calcSalesRevenue();
+
+        calculateRevenue();
     }
 
     public static void calcSalesRevenue() {
         Scanner scanner = new Scanner(System.in);
 
+        double revenue;
+        double unitPrice;
+        int quantity;
+        double discountRate;
+        double discountAmount;
+        double discountedRevenue;
+
 
         System.out.println("Enter unit price:");
-        double unitPrice = scanner.nextDouble();
+        unitPrice = scanner.nextDouble();
 
         System.out.println("Enter quantity:");
-        int quantity = scanner.nextInt();
+        quantity = scanner.nextInt();
 
+        revenue = unitPrice * quantity;
+
+        if (quantity >= 100 && quantity <= 120) {
+            discountRate = 0.15;
+        } else if (quantity > 120) {
+            discountRate = 0.20;
+        } else {
+            discountRate = 0;
+        }
+
+        discountAmount = revenue * discountRate;
+        discountedRevenue = revenue - discountAmount;
+
+        System.out.println("The total revenue from sale is: " + discountedRevenue + "$");
+        System.out.println("The discount from sale is: " + discountAmount + "$");
+    }
+
+    public static void calculateRevenue() {
+        double revenue;
+        double unitPrice;
+        int quantity;
         double discountRate;
-        if (quantity<100){
-            discountRate=0;
-        }
-        if (quantity >= 100 && quantity < 120) {
-            discountRate = 15 / 100;
-        }
-        if (quantity >= 120){
-            discountRate = 20 / 100;
-        }
+        double discount;
+        String revenueMessage = "The revenue from sale: ";
+        String discountMessage = "Discount: ";
+        char dollar = '$';
 
+        Scanner scanner = new Scanner(System.in);
 
-        switch (quantity) {
-            case 1:
-                System.out.println("Case1 ");
-                break;
-            case 2:
-                System.out.println("Case2 ");
-                break;
-            case 3:
-                System.out.println("Case3 ");
-                break;
-            default:
-                System.out.println("Default ");
+        System.out.println("Please enter unit price:");
+        unitPrice = scanner.nextDouble();
+
+        System.out.println("Please enter quantity:");
+        quantity = scanner.nextInt();
+
+        revenue = unitPrice * quantity;
+
+        if (quantity >= 100 && quantity <= 120) {
+            discountRate = 0.15;
+        } else if (quantity > 120) {
+            discountRate = 0.20;
+        } else {
+            discountRate = 0;
         }
 
-        double salesAmount = quantity * unitPrice;
-//        double discountAmount = salesAmount - (salesAmount * discountRate);
+        discount = revenue * discountRate;
+        revenue = revenue - discount;
 
-        System.out.println("The revenue from sale: "  + "$");
-//        System.out.println("Discount: " + discountAmount + "$");
-
-
+        System.out.println(revenueMessage + revenue + dollar);
+        System.out.println(discountMessage + discount + dollar);
     }
 
 }

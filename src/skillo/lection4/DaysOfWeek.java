@@ -4,12 +4,16 @@ import java.util.Scanner;
 
 public class DaysOfWeek {
     public static void main(String[] args) {
+
         printDayOfWeek();
     }
 
     public static void printDayOfWeek() {
+        Scanner scanner = new Scanner(System.in);
 
-        int num = 8;
+        System.out.println("Enter a day of the week as number:");
+        int num = scanner.nextInt();;
+
         switch (num) {
             case 1:
                 System.out.println("The " + num + "-st day of the week is Monday");

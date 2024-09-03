@@ -34,8 +34,4 @@ public class Objects {
         student3.printDetails();
     }
 
-    public static void createProductObjects() {
-        Product product = new Product();
-        
-    }
 }
